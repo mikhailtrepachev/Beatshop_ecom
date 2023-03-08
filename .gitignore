@@ -396,3 +396,7 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+# AWS and Database passwords
+awsSettings.json
+appsettings.json
