@@ -8,6 +8,11 @@ using Beatshop.Repositories;
 using Beatshop.Interfaces;
 using Amazon.S3;
 using Amazon;
+using Beatshop.Models.Claims;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using Beatshop.Controllers;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,7 +23,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+   .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddCors(options =>
 {
@@ -82,6 +87,13 @@ app.MapControllerRoute(
      name: "beatupload",
      pattern: "api/beatupload",
      defaults: new { controller = "BeatUpload", action = "Post" }
+)
+    .RequireCors("CorsPolicy");
+
+app.MapControllerRoute(
+    name: "get_beats_on_main_page",
+    pattern: "api/get_beats_on_main_page",
+    defaults: new { controller = "GetBeatsOnMainPage", action = "Get" }
 )
     .RequireCors("CorsPolicy");
 

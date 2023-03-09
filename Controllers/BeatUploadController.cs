@@ -1,31 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Beatshop.Interfaces;
 using Beatshop.Models;
-using Amazon;
-using Amazon.S3;
-using Amazon.S3.Transfer;
 using System.Net;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Beatshop.Controllers;
 
 [Route("api/beatupload")]
 [ApiController]
+[Authorize]
 public class BeatUploadController : ControllerBase
 {
     private IBeatUploadRepository _beatRepository;
     private IAmazonServiceRepository _amazonServiceRepository;
 
-    public BeatUploadController(IBeatUploadRepository beatUploadRepository, IAmazonServiceRepository amazonServiceRepository)
+    public BeatUploadController(IBeatUploadRepository beatUploadRepository,
+        IAmazonServiceRepository amazonServiceRepository)
     {
         _beatRepository = beatUploadRepository;
         _amazonServiceRepository = amazonServiceRepository;
-    }
-
-    [HttpGet]
-    public async Task<List<Beat>> Get()
-    {
-        return await _beatRepository.GetAllAsync();
     }
     [HttpPost]
     public async Task<IActionResult> Post([FromForm(Name = "trackName")] string trackName,
@@ -34,6 +28,12 @@ public class BeatUploadController : ControllerBase
     {
         long sizeTrackInBytes = trackFile.Length;
         string extensionTrack = Path.GetExtension(trackFile.FileName);
+
+        var creationDate = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+
+        //TODO: Create a check for the presence of a file with the same name
+
+        var newFileName = trackName + extensionTrack;
 
         if (trackFile == null || trackFile.Length == 0)
         {
@@ -56,14 +56,16 @@ public class BeatUploadController : ControllerBase
             return BadRequest("Identity could not be identified");
         }
 
-        var responseFromAmazon = await _amazonServiceRepository.UploadFileAsync(trackFile, memoryStream);
+        var responseFromAmazon = await _amazonServiceRepository.UploadFileAsync(trackFile, memoryStream, newFileName);
 
         var track = new Beat
         {
-            Name = trackFile.FileName,
+            Id = Guid.NewGuid().ToString(),
+            Name = newFileName,
             Description = trackDescription,
             Genre = trackGenre,
             CreatedById = userId,
+            CreationDate = creationDate,
         };
 
         var responseFromDatabase = await _beatRepository.CreateAsync(track);

@@ -12,5 +12,7 @@ public class Beat
     public string Genre { get; set; } = string.Empty;
 
     public string CreatedById { get; set; } = string.Empty;
+
+    public string CreationDate { get; set; }
 }
 

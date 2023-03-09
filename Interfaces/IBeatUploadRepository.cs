@@ -8,6 +8,6 @@ public interface IBeatUploadRepository
 {
     Task<bool> CreateAsync(Beat track);
 
-    Task<List<Beat>> GetAllAsync();
+    Task<List<Beat>> GetBeats();
 }
 

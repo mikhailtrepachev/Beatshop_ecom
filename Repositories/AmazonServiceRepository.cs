@@ -18,12 +18,12 @@ public class AmazonServiceRepository : IAmazonServiceRepository
         _s3Client = s3Client;
     }
 
-    public async Task<PutObjectResponse> UploadFileAsync(IFormFile formFile, MemoryStream memoryStream)
+    public async Task<PutObjectResponse> UploadFileAsync(IFormFile formFile, MemoryStream memoryStream, string fileName)
     {
         var request = new PutObjectRequest
         {
             BucketName = "beats.storage",
-            Key = formFile.FileName,
+            Key = fileName,
             InputStream = memoryStream,
             ContentType = formFile.ContentType
         };

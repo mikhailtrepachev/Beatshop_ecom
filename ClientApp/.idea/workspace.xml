@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="565eec31-479c-4325-b931-cf6669ce02cf" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Beatshop.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/../Beatshop.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/UploadComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UploadComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Controllers/BeatUploadController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Controllers/BeatUploadController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Interfaces/IAmazonServiceRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Interfaces/IAmazonServiceRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/ApplicationUser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Models/ApplicationUser.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Models/Beat.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Models/Beat.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Repositories/AmazonServiceRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/../Repositories/AmazonServiceRepository.cs" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2MmPlMg3rWiRrtpFwKj7fr0kSbW" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/mikhail/Projects/Beatshop/Beatshop_ecom/ClientApp",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="565eec31-479c-4325-b931-cf6669ce02cf" name="Changes" comment="" />
+      <created>1678369936042</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678369936042</updated>
+      <workItem from="1678369939688" duration="107000" />
+      <workItem from="1678370329794" duration="51000" />
+      <workItem from="1678370414181" duration="8029000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

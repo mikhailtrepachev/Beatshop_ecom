@@ -14,6 +14,7 @@ public class BeatUploadRepository : IBeatUploadRepository
 		_dbContext = dbContext;
 	}
 
+	//insert a new Beat model inside the database
 	public async Task<bool> CreateAsync(Beat track)
 	{
         _dbContext.Add(track);
@@ -21,9 +22,12 @@ public class BeatUploadRepository : IBeatUploadRepository
         return true;
 	}
 
-	public async Task<List<Beat>> GetAllAsync()
+    //return 20 beats for the main page. TODO: rename the method depending on the logic
+    public async Task<List<Beat>> GetBeats()
 	{
 		return await _dbContext.Beats
+					.OrderByDescending(o => o.CreationDate)
+					.Take(20)
 					.ToListAsync();
 	}
 }

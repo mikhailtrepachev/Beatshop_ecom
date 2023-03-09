@@ -6,6 +6,6 @@ namespace Beatshop.Interfaces;
 
 public interface IAmazonServiceRepository
 {
-    Task<PutObjectResponse> UploadFileAsync(IFormFile formFile, MemoryStream memoryStream);
+    Task<PutObjectResponse> UploadFileAsync(IFormFile formFile, MemoryStream memoryStream, string fileName);
 }
 

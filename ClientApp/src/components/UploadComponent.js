@@ -4,6 +4,7 @@ import { message, Button, Popconfirm, Space,
 import { UploadOutlined, PlusOutlined } from '@ant-design/icons';
 import React, { Component, useState } from 'react';
 import axios from 'axios';
+import {AuthorizeService} from "./api-authorization/AuthorizeService";
 
 const validExtentions = ['.wav', '.mp3'];
 
@@ -12,14 +13,20 @@ const { Text } = Typography;
 
 const gutterForRows = [16, 16];
 
+
+const jsonString = localStorage.getItem('Beatshopuser:https://localhost:44404:Beatshop');
+const jsonObject = JSON.parse(jsonString);
+const token = jsonObject.access_token;
 //axios set up
 const axiosInstance = axios.create({
-  baseURL: '/api',
-  withCredentials: true,
-  headers: {
-    'Content-Type': 'multipart/form-data',
-  },
+    baseURL: '/api',
+    withCredentials: true,
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      'Authorization': `Bearer ${token}`,
+    },
 });
+
 
 //TODO: upload image to the database or AWS
 const getBase64 = (file) =>
@@ -138,26 +145,22 @@ export class UploadComponent extends Component {
   };
 
   handleInputChange = (event) => {
-
     const { name, value } = event.target;
     this.setState({ [name]: value });
-
   }
 
   handleGenreChange = (value) => {
-
     this.setState({ genre: value });
-
   };
 
   handleUploadChange = ({ file, fileList }) => {
-    //Check file extention
 
+    //Check file extention
     const extention = file.name.substring(file.name.lastIndexOf('.')).toLowerCase();
     if (!validExtentions.includes(extention)) {
       message.error('Only .WAV and .MP3 are allowed!');
-      //Remove file from the fileList
 
+      //Remove file from the fileList
       const index = fileList.indexOf(file);
       fileList.splice(index, 1);
       this.setState({ fileList });
@@ -169,11 +172,8 @@ export class UploadComponent extends Component {
 
   //API function for sending data to the server side
   handleSubmit = async (event) => {
-
     event.preventDefault();
-
     const { fileList, trackName, description, genre } = this.state;
-
     const formData = new FormData();
     formData.append('trackName', trackName);
     formData.append('trackFile', fileList[0].originFileObj);
